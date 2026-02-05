@@ -1,13 +1,13 @@
 import {useState,useEffect} from 'react';
 import {useSelector,useDispatch} from "react-redux";
-import {fetchFoodList} from "../actions/foodActions";
+import {fetchRecipeList} from "../actions/recipeActions";
 import {Link} from "react-router";
-function FoodList() {
+function RecipeList() {
     // 처리
     const [curpage, setCurpage] = useState(1);
     const dispatch = useDispatch(); // Action 함수
     useEffect(() => {
-        dispatch(fetchFoodList(curpage));
+        dispatch(fetchRecipeList(curpage));
     },[curpage]);
     /*
       state : food , recipe , seoul , board
@@ -16,10 +16,10 @@ function FoodList() {
                           |
                        list,curpage....
      */
-    const food_list=useSelector(state => state.foods.food_list.list);
-    const totalpage=useSelector(state=> state.foods.food_list.totalpage)
-    const startPage=useSelector(state=> state.foods.food_list.startPage)
-    const endPage=useSelector(state=> state.foods.food_list.endPage)
+    const recipe_list=useSelector(state => state.recipes.recipe_list.list);
+    const totalpage=useSelector(state=> state.recipes.recipe_list.totalpage)
+    const startPage=useSelector(state=> state.recipes.recipe_list.startPage)
+    const endPage=useSelector(state=> state.recipes.recipe_list.endPage)
     // food_list => Map으로 전송된 모든 값
     const pageChange=(page)=>{
         setCurpage(page)
@@ -43,9 +43,9 @@ function FoodList() {
     // 1 2 3 4 5...
     for(let i=startPage;i<=endPage;i++){
         row.push(
-          <li className={i===curpage?"active":""}>
-              <a className={"a-link"} onClick={()=>pageChange(i)}>{i}</a>
-          </li>
+            <li className={i===curpage?"active":""}>
+                <a className={"a-link"} onClick={()=>pageChange(i)}>{i}</a>
+            </li>
         )
     }
     // >>
@@ -60,14 +60,16 @@ function FoodList() {
         <div className="container">
             <div className="row">
                 {
-                    food_list &&
-                    food_list.map((food,index) =>
+                    recipe_list &&
+                    recipe_list.map((recipe,index) =>
                         <div className="col-md-3" key={index}>
                             <div className="thumbnail">
-                                <Link to={`/detail/${food.fno}`}>
-                                    <img src={food.poster}  style={{"width":"250px","height":"150px"}} />
+                                <Link to={`/recipe/detail/${recipe.no}`}>
+                                    <img src={recipe.poster}  style={{"width":"250px","height":"150px"}}
+                                      title={recipe.title}
+                                    />
                                     <div className="caption">
-                                        <p>{food.name}</p>
+                                        <p>{recipe.chef}</p>
                                     </div>
                                 </Link>
                             </div>
@@ -78,10 +80,10 @@ function FoodList() {
             </div>
             <div className="row text-center" style={{"marginTop":"10px"}} >
                 <ul className="pagination">
-                 {row}
+                    {row}
                 </ul>
             </div>
         </div>
     )
 }
-export default FoodList
+export default RecipeList

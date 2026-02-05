@@ -13,3 +13,13 @@ export const fetchFoodList=(page)=>dispatch => {
              dispatch(action)
          })
 }
+export const fetchFoodDetail=(fno)=>dispatch => {
+    axios.get(`http://localhost/food/detail_react/${fno}`)
+        .then(response=>{
+            const action={
+                type:FETCH_FOOD_DETAIL,
+                payload:response.data
+            }
+            dispatch(action)
+        })
+}

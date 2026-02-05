@@ -55,13 +55,17 @@ import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
 import store from "./store/store"
 import FoodList from "./components/FoodList";
 import FoodDetail from "./components/FoodDetail";
+import RecipeList from "./components/RecipeList";
+import RecipeDetail from "./components/RecipeDetail";
 function App() {
   return (
      <Provider store={store}>
        <Router>
          <Routes>
-           <Route path={""} element={<FoodList/>}/>
+           <Route path={"/"} element={<FoodList/>}/>
            <Route path={"/detail/:fno"} element={<FoodDetail/>}/>
+           <Route path={"/recipe/list"} element={<RecipeList/>}/>
+           <Route path={"/recipe/detail/:no"} element={<RecipeDetail/>}/>
          </Routes>
        </Router>
      </Provider>

@@ -2,7 +2,11 @@ import {FETCH_RECIPE_LIST,FETCH_RECIPE_DETAIL} from "../actions/types";
 
 const recipeState={
     recipe_list:[],
-    recipe_detail:{}
+    recipe_detail:{
+        vo:{},
+        tList:[],
+        iList:[]
+    }
 }
 
 export default function(state=recipeState, action){

@@ -2,11 +2,7 @@ import {FETCH_FOOD_LIST,FETCH_FOOD_DETAIL} from "../actions/types";
 
 const foodState={
     food_list:[],
-    food_detail:{
-        vo:{},
-        tList:[],
-        iList:[]
-    }
+    food_detail:{}
 }
 
 export default function(state=foodState, action){

@@ -57,6 +57,9 @@ import FoodList from "./components/FoodList";
 import FoodDetail from "./components/FoodDetail";
 import RecipeList from "./components/RecipeList";
 import RecipeDetail from "./components/RecipeDetail";
+import BoardList from "./components/BoardList";
+import BoardInsert from "./components/BoardInsert";
+import BoardDetail from "./components/BoardDetail";
 function App() {
   return (
      <Provider store={store}>
@@ -66,6 +69,9 @@ function App() {
            <Route path={"/detail/:fno"} element={<FoodDetail/>}/>
            <Route path={"/recipe/list"} element={<RecipeList/>}/>
            <Route path={"/recipe/detail/:no"} element={<RecipeDetail/>}/>
+           <Route path={"/board/list"} element={<BoardList/>}/>
+           <Route path={"/board/insert"} element={<BoardInsert/>}/>
+           <Route path={"/board/detail/:no"} element={<BoardDetail/>}/>
          </Routes>
        </Router>
      </Provider>

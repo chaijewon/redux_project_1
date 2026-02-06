@@ -39,7 +39,7 @@
  */
 import {
     BOARD_LIST, BOARD_INSERT, BOARD_DETAIL, BOARD_DELETE,
-    BOARD_UPADTE_OK, BOARD_UPDATE, RESET
+    BOARD_UPDATE_OK, BOARD_UPDATE, RESET
 } from "./types";
 import axios from "axios";
 // action형식
@@ -92,4 +92,31 @@ export const boardDetail=(no)=> dispatch => {
     })
 }
 // 수정
+export const boardUpdate=(no)=> dispatch => {
+    axios.get(`http://localhost/board/update_react/${no}`)
+    .then(res=>{
+        const action={
+            type:BOARD_UPDATE,
+            payload:res.data
+        }
+        dispatch(action)
+    })
+}
+export const boardUpdateOk=(updateData)=> dispatch => {
+    axios({
+        method:"PUT",
+        baseURL:"http://localhost",
+        url:"/board/update_react_ok",
+        data:updateData,
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(res=>{
+        const action={
+            type:BOARD_UPDATE_OK,
+            payload:res.data
+        }
+        dispatch(action) // reducer
+    })
+}
 // 삭제

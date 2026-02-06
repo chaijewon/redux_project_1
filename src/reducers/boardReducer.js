@@ -1,5 +1,5 @@
 import {BOARD_LIST,BOARD_INSERT,BOARD_DETAIL,BOARD_DELETE,
-    BOARD_UPADTE_OK,BOARD_UPDATE,RESET} from "../actions/types";
+    BOARD_UPDATE_OK,BOARD_UPDATE,RESET} from "../actions/types";
 
 /*
      Java = JavaScript
@@ -62,6 +62,16 @@ export default function(state=boardState, action){
             return {
                 ...state,
                 board_detail:action.payload
+            }
+        case BOARD_UPDATE:
+            return {
+                ...state,
+                board_update:action.payload
+            }
+        case BOARD_UPDATE_OK:
+            return {
+                ...state,
+                result:action.payload
             }
         case RESET:
             return {

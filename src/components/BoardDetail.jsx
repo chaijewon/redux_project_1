@@ -43,7 +43,9 @@ function BoardDetail() {
                     </tr>
                     <tr>
                         <td colSpan={4} className={"text-right"}>
-                            <Link to={"/board/list"} className={"btn-xs btn-danger"}>목록</Link>
+                            <Link to={"/board/update/"+detail.no} className={"btn-xs btn-primary"}>수정</Link>
+                            <Link to={"/board/delete/"+detail.no} className={"btn-xs btn-warning"}>삭제</Link>
+                            <Link to={"/board/list"} className={"btn-xs btn-info"}>목록</Link>
                         </td>
                     </tr>
                     </tbody>

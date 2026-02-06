@@ -120,3 +120,13 @@ export const boardUpdateOk=(updateData)=> dispatch => {
     })
 }
 // 삭제
+export const boardDelete=(no,pwd)=> dispatch => {
+    axios.delete(`http://localhost/board/delete_react/${no}/${pwd}`)
+    .then(res=>{
+        const action={
+            type:BOARD_DELETE,
+            payload:res.data
+        }
+        dispatch(action)
+    })
+}

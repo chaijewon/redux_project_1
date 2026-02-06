@@ -73,6 +73,11 @@ export default function(state=boardState, action){
                 ...state,
                 result:action.payload
             }
+        case BOARD_DELETE:
+            return {
+                ...state,
+                result:action.payload
+            }
         case RESET:
             return {
                 ...state,

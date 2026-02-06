@@ -61,6 +61,7 @@ import BoardList from "./components/BoardList";
 import BoardInsert from "./components/BoardInsert";
 import BoardDetail from "./components/BoardDetail";
 import BoardUpdate from "./components/BoardUpdate";
+import BoardDelete from "./components/BoardDelete";
 function App() {
   return (
      <Provider store={store}>
@@ -74,6 +75,7 @@ function App() {
            <Route path={"/board/insert"} element={<BoardInsert/>}/>
            <Route path={"/board/detail/:no"} element={<BoardDetail/>}/>
            <Route path={"/board/update/:no"} element={<BoardUpdate/>}/>
+           <Route path={"/board/delete/:no"} element={<BoardDelete/>}/>
          </Routes>
        </Router>
      </Provider>

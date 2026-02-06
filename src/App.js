@@ -62,6 +62,7 @@ import BoardInsert from "./components/BoardInsert";
 import BoardDetail from "./components/BoardDetail";
 import BoardUpdate from "./components/BoardUpdate";
 import BoardDelete from "./components/BoardDelete";
+import RecipeFind from "./components/RecipeFind";
 function App() {
   return (
      <Provider store={store}>
@@ -71,6 +72,7 @@ function App() {
            <Route path={"/detail/:fno"} element={<FoodDetail/>}/>
            <Route path={"/recipe/list"} element={<RecipeList/>}/>
            <Route path={"/recipe/detail/:no"} element={<RecipeDetail/>}/>
+           <Route path={"/recipe/find"} element={<RecipeFind/>}/>
            <Route path={"/board/list"} element={<BoardList/>}/>
            <Route path={"/board/insert"} element={<BoardInsert/>}/>
            <Route path={"/board/detail/:no"} element={<BoardDetail/>}/>
